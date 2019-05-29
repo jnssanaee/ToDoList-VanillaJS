@@ -1,5 +1,3 @@
-// CODE EXPLAINED channel
-
 // 요소 선택
 const clear = document.querySelector(".clear");
 const dateElement = document.getElementById("date");
@@ -17,11 +15,15 @@ let LIST, id;
 // 로컬스토리지 get 데이터
 let data = localStorage.getItem("TODO");
 
-// 빈데이터 체크
+
+// 로컬스토리지 데이터 유무 체크
 if(data){
     LIST = JSON.parse(data);
+    
     id = LIST.length;
+    
     loadList(LIST);
+    //console.log(LIST);
 } else{
     LIST = [];
     id = 0;
@@ -31,6 +33,7 @@ if(data){
 function loadList(array){
     array.forEach(function(item){
         addToDo(item.name, item.id, item.done, item.trash);
+        console.log(item);
     });
 }
 
@@ -48,7 +51,7 @@ dateElement.innerHTML = today.toLocaleDateString("ko-KR", options)
 // Todo Function
 function addToDo(toDo, id, done, trash){
 
-    if(trash){ return; }; //??
+    if(trash){ return;}; //??
 
     const DONE = done ? CHECK : UNCHECK;
     const LINE = done ? LINE_THROUGH : "";
@@ -65,7 +68,7 @@ function addToDo(toDo, id, done, trash){
 }
 
 // 할일 추가
-document.addEventListener("keyup", function(even){
+document.addEventListener("keyup", function(event){
     if(event.keyCode == 13){
         const toDo = input.value;
 
@@ -91,8 +94,9 @@ document.addEventListener("keyup", function(even){
 
 // 완료 버튼
 function completeToDo(element){
-    element.ClassList.toggle(CHECK);
-    element.ClassList.toggle(UNCHECK);
+    console.log(element.parentNode.querySelector(".text"));
+    element.classList.toggle(CHECK);
+    element.classList.toggle(UNCHECK);
     element.parentNode.querySelector(".text").classList.toggle(LINE_THROUGH);
 
     LIST[element.id].done = LIST[element.id].done ? false : true;
@@ -105,14 +109,15 @@ function removeToDo(element){
     LIST[element.id].trash = true;
 }
 
+// 타켓 선택 시
 list.addEventListener("click", function(event){
     const element = event.target;
-    //console.log(element.job.value);
+    //console.log(element);
     const elementJob = element.attributes.job.value;
 
     if(elementJob == "complete"){
         completeToDo(element);
-    } else if(elementJob == "delete"){
+    } else if(elementJob == "remove"){
         removeToDo(element);
     }
 
