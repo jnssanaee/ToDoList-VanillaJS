@@ -1,8 +1,9 @@
 ## VanillaJS TodoList
 
-기술 스택 :
-browser support : 
-
+기술 스택 : HTML5, CSS3, ES6
+browser support : CHROME, IE10+
+라이브러리 : Font Awesome
+---
 
 ### 알게된 개념
 
@@ -50,8 +51,9 @@ element.ClassList.toggle();
 
 **localStorage.setItem()**  
 
-로컬 스토리지 : HTML5에서 추가된 저장소이며, key,value 스토리지 형태이다.
-로컬 스토리지는 window.localStorage에 위치하며, 값은 문자열, 불린, 숫자, null, undefined 등을 저장할 수 있지만, 모두 문자열로 변환된다.  
+로컬 스토리지 : HTML5에서 추가된 저장소이며, key,value 스토리지 형태이다.  
+로컬 스토리지는 window.localStorage에 위치하며,  
+값은 문자열, 불린, 숫자, null, undefined 등을 저장할 수 있지만, 모두 문자열로 변환된다.  
 사용자가 지우지 않는 한 계속 브라우저에 남아있다. (**비밀번호같은 중요한 정보는 절대 사용X**)
 
 저장 : localStorage.setItem(key, value)  
@@ -94,4 +96,5 @@ array1.forEach(function(element) {
 
 새로고침 메서드이며, 기본값은 false 인자를 가지고 있다.
 .reload(true) 선언 시, 캐시를 무시하고 현재 서버로부터 다시 새로고침힌다.
+
 ---
