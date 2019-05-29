@@ -1,12 +1,16 @@
 ## VanillaJS TodoList  
 
-기술 스택 : HTML5, CSS3, ES6
-browser support : CHROME, IE10+
+기술 스택 : HTML5, CSS3, ES6  
+browser support : CHROME, IE10+  
 라이브러리 : Font Awesome
 
 ---
 
-### 알게된 개념
+<br>
+
+
+## 알게된 개념
+
 
 **toLocaleDateString & options**  
 
